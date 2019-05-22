@@ -1,0 +1,12 @@
+<h1 class="border-bottom pb-4 my-4">List of Restaurants</h1>
+<% @restaurants.each do |restaurant| %>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= restaurant.name %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= restaurant.category.capitalize %></h6>
+      <p class="card-text"><%= restaurant.address %></p>
+      <%= link_to "View", restaurant_path(restaurant.id), class: "card-link" %>
+    </div>
+  </div>
+<% end %>
+

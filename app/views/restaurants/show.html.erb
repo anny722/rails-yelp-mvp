@@ -1,0 +1,51 @@
+<h1 class="my-4"><%= @restaurant.name %></h1>
+<h4>Details:</h4>
+<div class="container-details d-flex my-4">
+
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Category:</h5>
+      <p class="card-text"><%=  @restaurant.category.capitalize %></p>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Address:</h5>
+      <p class="card-text"><%= @restaurant.address %></p>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Phone number:</h5>
+      <p class="card-text"><%= @restaurant.phone_number %></p>
+    </div>
+  </div>
+
+</div>
+
+<ul class="nav">
+  <li class="nav-item">
+    <%= link_to "Add a review", new_restaurant_review_path(@restaurant.id), class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Back", restaurants_path, class: "nav-link" %>
+  </li>
+</ul>
+
+<h4 class="mt-4">Reviews:</h4>
+
+<% if @restaurant.reviews == [] %>
+  <p>No reviews yet. Be the first to make a review.</p>
+<% else %>
+  <% @restaurant.reviews.each do |review| %>
+    <div class="container-review d-flex justify-content-between">
+    <p><%= review.content %></p>
+    <p><%= review.rating %> <i class="fas fa-star"></i></p>
+    </div>
+  <% end %>
+<% end %>
+
+
+
