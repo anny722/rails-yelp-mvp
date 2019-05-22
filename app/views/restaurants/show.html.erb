@@ -34,6 +34,9 @@
   </li>
 </ul>
 
+<h4 class="my-4">Add a new review</h4>
+<%= render 'reviews/form', review: @review, restaurant: @restaurant %>
+
 <h4 class="mt-4">Reviews:</h4>
 
 <% if @restaurant.reviews == [] %>
